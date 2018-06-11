@@ -1,0 +1,119 @@
+FOR THE AQ2 TEST DATA:
+"is clip" pra ammo type (estraga o que tá na arma e 1 da reserva enche o pente OU estraga o que tá na arma só)
+"singleload" pra shotguns, cada recarga adiciona só uma bala
+"dual" que aponta pra um bit de uma nova arma pra pegar caso já tenha essa? (pra dual pistols)
+"ammo_per_fire" pra shotguns duplas, etc
+ver se já fiz não soltar a arma no caso de morrer pra nbomb e m61frag
+shotguns eject shells
+se ammo_capacity da arma == null, então não mostrar o modelo pra atirar (por exemplo, vai aparecer uma granada na mão sendo que não tem)
+search AMMO, g_ammobox (cache the ammo box model for each weapon or for each ammo?)
+use real model as viewmodel? (because of differences in, for example, clothes, gloves, skin tones, etc)
+
+Sys_LoadModelPhysicsTrimeshQuake1MDL e Sys_LoadModelPhysicsTrimeshQuake2MDL pegam verts do lugar errado?
+ent.lifetime each frame end
+carro não leva se andar por cima (TESTAR DE NOVO BMODELS KINEMATIC SE MOVENDO) TEST AGAIN!
+se conectar pausado fica tudo no origin (solução: não desenhar nada e, caso venha svc_snapshotreset, dar um aviso de que deu erro de rede)
+keepalive server quadno em signon broken on changelevel?
+ignore gravity do vertiglider?
+make a test airplane
+
+compress savegames
+add \" in all string parsing
+probably a driver bug: if my computer is low on free RAM, the engine will be SLOWER, only a reboot will fix. (map level3big illustrates this well)
+
+cvars which should be broadcasted to clients and info requests (cvar server flag)
+
+loading on changelevel, etc
+pausar em single player se menu
+aliases de console
+comando force_centerview
+
+sound volume
+
+load/save hub-style (hexen/hexen2/quake2/half-life)
+implement entity rotation to aabb calculations in visibility determination
+
+ao adicionar em fat pvs (E FAZER QUALQUER OUTRA COISA COM BSP), CHECAR NODE CONTENTS!!!
+warning cflags varying widly between debug and release project properties in msvc2008
+
+try to minimize cache misses and branch prediction misses (also use __likely__, __unlikely__ and other builtins)
+INDICES COUNTING IS BROKEN AND I'M PERPETUATING THE ERROR INSTEAD OF FIXING IT! Example: in sys_models.c, mdl->sprite.indexes = Sys_MemAlloc(&mdl_mem, sizeof(int) * mdl->sprite.index_count * 3, "model"); HAS THREE TIME MORE SPACE THAN NEEDED
+make projectiles (like missiles) have the same initial velocity (inertia) of the parent entity (self.owner)
+
+shape cache
+
+
+passar parte de position_ls pra uniform (shadowcubemapping)
+see in shaders where normals were not normalized after operations (also, better to have the INPUT normalized ONCE in the engine, rather than for every pixel)
+
+
+for shared physics code:
+keep server cvars in sync
+comment about how options for zeros in the entity list etc should be sensible for the client for stuff not synced
+time syncing between physworlds?
+ok-see what code physics call and see what code calls physics to duplicate client-side
+ok-testar se o callback no internal tick de world funciona
+
+
+see why animations with 1 frame overflow to the next
+ragdolls as another type of entity, not in the max_edicts structs? exclusively client-side?
+
+models
+sounds
+levels
+game modes
+more weapon logic
+menus
+
+LOTS of math errors when using signed vs unsigned, and different width integers
+remove all allocs that run every frame (it's SLOOOW)
+radiusdamage slow. fixed?
+create entity slow (even muzzleflash creation is slow), maybe it's the spawn* functions? fixed?
+lights still slow? has there been a regression? (if more than 8 lights at once)
+cache iqm frame (and light dir) PER ENTITY to allow multiple passes with less cpu usage?
+my fault: lots of errors with accessing [1] instead of [i] or vice versa. Also some reuses of i in nested for loops?
+clear interpolation data instead of relinking in lots of settransforms in the physics code?
+spawn points for deathmatch and game modes, pd game modes
+
+use instancing for particles, etc
+improve general geometry performance
+
+check for functions that returns errors like -1 (especially when the return values are used as indices!)
+
+verticality: structures shouldn't go up (among other things that should not happen). For example: cl_video shouldn't work with any structures in sys_video, only refer to them as void * to pass from and to differente sys_video functions
+
+for sound: position interpolation just like entity origin (also, send entity even if invisible for sound position updates? cheats/etc...)
+
+is there any relying on globals being initialized as zero in subsystems which should be re-started?
+
+make gravity changes work ingame, means having save/load working for it too
+Sys_LoadModelPhysicsValidateTrimesh: validate indices
+when using bsp, when an entity moves (by itself or pushed), it's touched leafs are updated (will be used if we ditch bullet in case of low-end systems)
+
+split collisionshape and hitscancollisionshape (hitboxes)
+
+sys_error durante carregamento do mapa faz o mapa ser carregado novamente, dando double error? (wtf?) (ok? test)
+apertar enter loucamente no menu vai mandar vários new game pro buffer de execução (ok? test)
+alias? e exec adiciona comandos ao final do buffer e não imediatamente após o exec como era pra ser
+
+consertar transparência/alpha channel de texturas/modelos nos modos 2d e 3d (ok?)
+
+consertar/fazer de verdade/remover gambiarras: carregamento de modelos e renderização clientside, carregamento pra physics side, PVS (arquivos pra definitivamente reescrever: cl_video.c, sys_physics.c, sys_win_video.c, sys_models.c, host_models.c (o resto tem TODO'S e FIXME'S ou é game-specific))
+VALIDATE INDICES SENT BY CLIENT AND/OR SERVER! VERY IMPORTANT! CURRENTLY THEY ARE COMPLETELY INSECURE! YOU HAVE BEEN WARNED!
+
+precache_file e fazer cópia dos recursos pra criar distribuição (precaches de file, sound, models) (não esquecer client-sides e texturas carregadas por models/maps)
+
+BEFORE RELEASE: gather redist stuff!
+
+little-endian/big-endian issues (loading and parsing from disk, networking, etc)
+
+verificar os TIPOS pra pradronizar (tipo seqnum_t, mstime_t)
+initialize all strings to [0] = 0! important, comparison may get out of their bounds. Just use c++?
+limpar buffers se desligar client E server, avisar se tem leaks (lowmark do tmp_mem não é 0)
+
+(pausar se ninguém estiver no servidor? pra load multiplayer game...)
+
+muitos e muitos casos de bounds checking (-1? -2? 0? oh god... cmd, cvar e network tão mal nisso - just use c++?)
+
+limite de conexões novas por minuto por cliente
+

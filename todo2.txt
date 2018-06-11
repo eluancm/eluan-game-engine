@@ -1,0 +1,93 @@
+-crouching breaks the camera because I have not completed the client-side camera code (current only okay for a standing player, works more or less for vehicles)
+-see if remote controlled missile stopped working after physics changes and fix it
+
+-iqm sem gpu
+OK-console?
+-host_error nao mostra o console se no meio do rendering
+-frustum culling kdop not working always (shadows)
+-render only aabb for models not working always (shadows)
+OK-stairs not working
+OK-bullet failing to add bsp in client-side
+OK-non-looped animations failing sometimes and causing a host_error (double time instead of uint64_t seems to have fixed this)
+OK-sometimes the console commands stop working? (only after "Warning: Command buffer overflow, remaining from last command"?)
+-intel gpus have a problem with the UBOs being too many/too big?
+-Problems with stuff in opengl < 3.3: shadows, gl debug messages callback, TEST SKYBOX, HAVE A PATH FOR OLD OPENGL AND NON-OVERLOADED texture() (shadows, skybox)
+-instanced rendering!!! (this means changing the renderer from per-entity to per-model)
+-in my weapon model, the left hand has inverted normals?
+-the projectile from the vertiglider is colliding with it when fired from some angles/speed, causing a minor turbulence (but not exploding?) (happens with the car too? but less extreme? happens with other player weapons?)
+
+-set MAX_NET_CMDSIZE back to 256 (vehicle turning + turret turning will cause an overflow!))
+OK-vehicle handbrake (spacebar) not working the first time we enter it? only after we exit and enter again? WORKING SOMETIMES? THE PROBLEM: USING [1] INSTEAD OF .y TO ACCESS THE VECTOR IN LUA - THEN WHY DID IT SOMETIMES WORK?
+-separate bits for each origin/angle/cmdmove/cmdangles to send (for other vectors too? avoid sending too many redundant stuff)
+-in the snapshots, use bytes for the bitfields (with the last bit indicating that there are more bitfields needed!) and concentrate the most common flags in the first bytes.
+-in the snapshots, send a REMOVE flag (for when the entity should be deleted, instead of when the entity went invisible?
+-use a model2, model3, for weapon, flag, etc instead of another entity?
+-reconciliation takes too much cpu time (option to predict only players?))
+-use times for better reconciliation
+-there are casts that eliminate warnings but get in the way when changing types (example, when time went from uint64_t to double, the (int) casts got in the way!!! there may still be some!)
+-in the lua progs interface, consolidate double and vec_t into one
+-test prediction with variable ping/pl (real world test!!)
+-sometimes entities in the prediction snapshot get the light of a previous entity that occupied that slot? or something else causing stray lights?
+-lua gamecode is slow (too many context switches in the interface?)
+-piercing ammo
+-fixed timestep everywhere
+-see if there is anything else from bullet that needs to be in savegames (also deal with the random seed(s)?
+-rapid-fire projectiles use lots of bandwidth (for entity & sounds)
+OK-after receiving 65535 snapshots, it fails
+-Use ghost objects for triggers, etc
+-after connecting, stalled with: Received out of order snapshot. Debug: cur 0 recv 2 recv_base 1
+-vehicle suspension when passing on top of something: wheels go up TOO MUCH
+-loading a saved game from a full screen console is not working (i.e.: after the disconnect command) (RELATED: calling clientprethink/clientpostthink/asyncplayermove in lua with NULL "health" field after loading in some cases?)
+-rocket launcher not damaging myself when pointing down
+
+OK-prediction (usercmds storing for reconciliation!!)
+-move client input processing in the server to the message parsing function and reply IMMEDIATELY AFTER THAT (minimal snapshot, only players positions? to avoid excessive cpu usage), for better latency? also do multithreaded input on the client. Remember to take care of the vehicle's turret getting sync'ed to the vehicle. Do the reply right in Sys_ProcessEvents???
+-multithreaded lag compensation (multiple worlds rolled back for validation of client input when using hitscan weapons - do also for damage radius of projectile weapons? and for projectile weapons?)
+-do KINEMATIC MOVEMENT, NOT JUST ANGLES!!! for async inputs!!!!
+-do angles completely on the client side like very game, with the server just validating (prevent jumps on packet loss)
+-when receiving inputs with frametimes, apply then only until the server's current time, queueing the remainder and any other inputs received for the next frames
+OK-async player input issue: dynamic character controller does not follow platform correctly when on top of them
+OK-async player input issue: able to push dead bodies
+-async player input issue: fast projectiles going through the players bodies
+-async player input issue: vehicles travel faster with each new client connected!
+-async player input issue: kinematic bodies detecting blocks too soon instead of pushing
+OK-do the forced activation in Sys_PhysicsContactAddedCallback only for async entities!!
+-replace removed entities everywhere with GHOST OR STATIC (depending on the properties) to keep collisions more consistent
+
+-everything unreliable (acks for groups of reliables of a determinate size! (cvar for max rate)
+-fire and forget for net commands rendered obsolete by the next update!)
+-load skybox for a map in the map loading phase
+-idea for splash damage: do a software depth rendering from the point of view of the explosion facing the victim, then see how much is drawn, the damage multiplier for the triangles whose pixels where drawn, etc...
+
+OK-if can't find input command state, do not reconciliate, just reset to the position the server gave!
+OK-move physics running to cl_pred
+
+-test cmake under windows
+
+---------------------------------
+to test after doing prediction:
+-enviar
+general:
+crouching
+worldent
+cameratype
+
+entities:
+owner
+DO movetype_follow client side!! It's in PostPhysics() in lua (for the turret to follow the car)
+
+
+
+testar ao mexer nas câmeras e aimcmd:
+abaixar
+os dois veículos andar, mira, atirar, entrar e sair
+slayer
+morrer, morrer controlando slayer, morrer controlando veículo
+test holding the fire button in vehicle then exiting (vehicle_think)
+voxels criar e tirar
+
+when messing with the character controller, try:
+moving, going up/down slopes and stairs, see if you can slide up a very steep
+ramp, try fly/ladders/water, passing through triggeres like weapons on the
+ground and dead bodies, jumping, moving when on top of platforms, getting pushed by kinematic
+and dynamic objects, minematic objects that crush or go back

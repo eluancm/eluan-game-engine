@@ -1,0 +1,23 @@
+GtkRadiant + q3map2
+
+For quake 3 BSPs: (may be incomplete, please update)
+
+*1 engine unit = 32 quake 3 bsp units (1/32 scale)
+*coordinates: engine X = quake -Y, engine Y = quake Z and engine Z = quake -X
+
+TODO: put entity properties, default values and how to use them here, including when use() gets called for each entity type :)
+(remembering that zeros will revert to default values)
+
+TODO: explain about shaders and how to use them, including surfaceflags
+
+In the 3D window, shift + click and drag will select visible brushes at the mouse cursor
+Sometimes it is better to "resize" a brush to the new position instead of moving it there, to keep texture alignment
+TODO: tutorials about map and model creation
+
+TODO: for q3map2, all keys/values for brushes/entities and command line parameters
+
+Detail brushes are very important, in GtkRadiant, use CTRL+M to make
+a brush detail and use CTRL+D to filter detail brushes from view.
+(TODO: this will simplify the vis tree, but the physics tree should
+also be simplified by allowing the detail brushes being replaced
+by a simpler collision mesh in the physics side)

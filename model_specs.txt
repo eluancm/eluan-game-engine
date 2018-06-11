@@ -1,0 +1,266 @@
+Blender + IQM exporter
+QUICK NOTES FOR MYSELF BECAUSE I'M NOT AN ARTIST
+
+TODO: explain more details
+
+
+In blender, 1 unit is 1 meter
+In blender, Z is up, so these are the views with the NUMPAD numbers:
+7: BACK LOOKING TO FRONT, UP IS UP
+CTR+7: FRONT LOOKING TO BACK, UPSIDE DOWN
+1: BOTTOM LOOKING TO TOP, RIGHT IS RIGHT
+CTRL+1: TOP LOOKING TO DOWN, RIGHT IS LEFT
+3: RIGHT LOOKING TO LEFT, UP IS BACK
+CRTL+3: LEFT LOOKING TO RIGHT, UP IS BACK
+
+
+TODO: Currently 60FPS, will we make it arbitrary? Good thing to do.
+
+To make animations, Use the Gingerbread Man tutorial (saved in
+/RedundantBackup/Linux/Programas/blender_2012/) then create new
+animations for the same model by going into the "Dope Sheet" view
+then selecting the "Action Editor" while in "Pose Mode" in the
+"3D View", create a new animation then delete all the keyframes
+from the preview to start fresh in this animation, but it's
+recommended to copy the first frame of the previous animation, to
+have them consistent. When exporting the IQM, select the mesh +
+armature in object mode then, in the IQM exporter window, type the
+animation names separated by ',' and with the optional parameters
+defined in the IQM devkit README.txt. I don't know if this option
+exists only on later versions, but selecting only "image" in
+"Materials" when exporting will be OK and easier to map for simple
+models. Complex ones will probably need material+image-ext.
+
+There is a bug (don't know if in the IQM exporter or Blender) with
+negative scales in objects. To work around it, just press Ctrl+A
+(or go to object->apply) and apply the scale. If the bones are
+flipped because of this, just go into the pose editor and apply a
+negative scale in the affected bones. A good tip is to always
+manipulate the bones by translating its endpoints, not by rotating
+or scaling.
+
+At least once the "Make quads into triangles" option made my mesh
+ugly! Disabling bone envelopes in the Armature modifier of the
+mesh can prevent a few weird issues with poses. Preserve volume
+sometimes can be good too. (Is "dual quaternion" animation needed
+in the engine for preserve volume to work in-game?)
+
+Another VERY IMPORTANT THING: in the armature object properties, go
+down to "Relation Extras" and set Tracking Axes to -Z Axis and Y Up
+Axis. Somehow this fixed the skeleton animation AFTER exporting.
+In blender it always worked! For Quake this wasn't necessary
+because the coordinate systems are the same.
+
+The IQM devkit README.TXT has useful information in overrinding
+start frame, end frame, frames per second and setting the loop
+flag while exporting the model from blender.
+
+VERY IMPORTANT: Be sure to click the "F" in the Action Editor near
+the action name, it's tooltip is "Save this datablock even if it
+has no users". Otherwise blender will DELETE the animation after
+exiting the program. Also the animation start and end become shared
+when Blender is closed? So animation duration should be set in the
+export script too, just like the loop flag
+
+Aparently bounding boxes are only exported if we have frames, which
+means to have 1 base animation of 1 frame and 1 armature/bone even
+for static objects. (For some reason 2 frames are generated when
+doing this, probably bacause no interval was specified when exporting
+the animation, so it took all frames, starting from zero, and blender
+sets the first keyframe to frame 1, thus 2 frames are generated.)
+
+Selecting stuff with the Outliner view makes sure that everything
+needed for the export is selected. Or maybe this aws the cause of
+that hdf->num_poses != iqm->num_joints (or something like that) error
+and I should use the "A" key to select everything before export?
+
+Also, vertices not attached to any vertex group/bone weren't showing
+up at all!
+
+ANIMATION_BASE_FRAME should have all bones in resting position.
+
+For mirroring skeletons, it's best to go into pose mode and press N
+for the properties tab, then scale the root bone by -1 in the
+desired axis there. TODO: will also have to rotate to mirror the
+rotation. Also good to do into Edit Mode, press s then edit the scale.
+
+Duplicating inside meshes: select parts of the mesh,
+Mesh->Add Duplicate, then do scales and rotations.
+(usually mirror x global)
+Then select the applicable bones, Armature->Duplicate then do the
+scales and rotations. (usually mirror x global)
+Renomear os bones (geralmente com prefixo, pra ficarem juntos na
+ordenação) e, como os vértices estão nos vertex groups dos bones
+anteriores, fica fácil: ir no vertex group, select, desselecionar
+os antigos, remove, criar vertex group pro novo, assign.
+
+If subdividing and merging faces a lot, these situations cause problems:
+.________.
+|        |
+|        |
+.__.__.__.
+|        |
+|        |
+.________.
+Delete/merge these extra vertices at the middle!!! They cause lots
+of problems, including with uv-unwrapping even properly seamed models
+
+In the default blender screen, some tabs of the properties window may
+be hidden, just make it bigger os use the mouse scroll wheel in the
+tabs.
+
+Animation Slots: for the engine, a file with the same name of the
+model but with _jointmasks.txt at the end (like
+test.iqm_jointmasks.txt for test.iqm) will define joint masks, they
+serve to make some animations only transform some bones, depending
+on the slot the animation is assigned to. Each line in the file
+should be of the form "JointName AnimationSlotName" as in this
+example:
+--EXAMPLE START
+LeftArm Arms
+RightArm Arms
+LeftHand Arms
+RightHand Arms
+
+LeftLeg Legs
+RightLeg Legs
+LeftFoot Legs
+RightFoot Legs
+
+Pelvis Pelvis
+
+Torso Torso
+
+Torso AllJoints
+Pelvis AllJoints
+LeftArm AllJoints
+RightArm AllJoints
+Head AllJoints
+LeftLeg AllJoints
+RightLeg AllJoints
+LeftHand AllJoints
+RightHand AllJoints
+Hat AllJoints
+LeftFoot AllJoints
+RightFoot AllJoints
+--EXAMPLE END
+The base frame will only affect the model if it is part of the
+animation (usually the Base animation) that has been assigned to the
+animation slot with index 0 (check the engine source for this).
+This is useful for disabling some animation slots and at the same
+time permits using the base frame in models without animation.
+
+Tags: for the engine, a file with the same name of the
+model but with _tags.txt at the end (like test.iqm_tags.txt for
+test.iqm) will define model tags, they serve tack possible attachment
+locations in the model. Each line in the file
+should be of the form "TagName TagPosX TagPosY TagPosZ JointName" as
+in this example:
+--EXAMPLE START
+RightHand 0.875 0.268 0 RightHand
+LeftHand -0.875 0.268 0 LeftHand
+--EXAMPLE END
+The tag position defined in the file should be the position in the
+base/rest pose. It will be transformed by the specified joint when
+animating an the final local or global position will be available to
+the game code. By pressing N in the 3D view, a bar appears in which
+the 3D cursor position can be viewed/etc (use the mouse wheel scroll
+if necessary to view the hidden elements of the bar)
+
+You can do: one skeleton/armature (to make global rotations easy) but
+with various meshes parented by it (to separate stuff and reuse them
+more easily)
+
+If a bone named "TorsoPitchJoint" is present, the models pitch will
+be applied to it before rendering and the model will be rendered with
+zero pitch. Data from animation slot 0 will be taken for modifying
+"TorsoPitchJoint" with the pitch. (TODO: this may and will change)
+
+Model sounds: a file named sounds/$modelname$_sounds.txt will define
+model-specific sounds in the "soundslot soundname" format. Example:
+--EXAMPLE START
+0 sounds/fire.wav
+1 sounds/fire_emptyclip.wav
+2 sounds/pain.wav
+3 sounds/die.wav
+--EXAMPLE END
+
+Interesting side effect that I didn't notice: model textures with
+alpha channel will render with alpha blending in the engine. (It also
+auto-sorts by depth when necessary.)
+
+In blender 2.77, with a model exported from makehuman, I was only
+able to start animating after:
+-Going to pose mode in the 3d view, to action editor in the dope sheet
+view
+-Selecting all bones, then going to pose->animation->change keying set
+and selecting "whole character"
+-if no keyframes are shown in the dope sheet, select all bones and
+insert a new keyframe WITH THE MOUSE IN THE 3D WINDOW
+-the you can start setting the frame vertical line in the dope sheet,
+posing and pressing I with the mouse IN THE DOPE SHEET to create
+keyframes
+-remember that keyframes can be selected by right-clicking in the small
+diamong or by pressing the "A" key to select/deselect all. (and copied
+and pasted with ctrl+c and ctrl+v)
+
+In the base pose, the model's distance from origin to the feet should
+be considered as the location of the "ground" plane.
+
+===============================================================================
+
+makehuman 1.0.2
+
+---------------------------
+blender add-on installation
+---------------------------
+Windows: put them in ~\AppData\Roaming\Blender Foundation\Blender\2.xx\scripts\addons
+The folder will have:
+makeclothes folder
+maketarget folder
+makewalk folder
+import_scene_mhx.py
+iqm_export.py
+
+-------------
+model options
+-------------
+Geometries
+ Clothes
+  Options
+   +Hide faces under clothes
+ Eyes
+  low-poly
+ Topologies
+  *Select one to create a low-poly mesh*
+Pose/Animate
+  Rig presets
+   +game.json
+
+--------------
+export options
+--------------
+
+Blender exchange (mhx)
+-Feet on  ground
++Rotation limits
+-Export for Rigify
+ Scale Units:
+  +meter
+
+After importing into blender, select model in the outliner view
+(usually top-right in the default blender window), press N in the 3D
+view and set the X, Y, Z rotations to 90, 0, 180 to make the model
+correspond to the coordinates in the engine. After that, press Ctrl+A
+to apply the transform and select Rotation. Be sure to do the entire
+process in Object Mode.
+
+Ater all this, I also could remove the mesh modelname:Body (high
+poly version). This Will make the triangle count better. Also, the
+hair mesh still has lots of triangles. To fix that, select the hair
+mesh, go to edit mode, select all vertices, press X and select limited
+dissolve. Play with the parameters a little to make it look good from
+all directions and with a lower number of faces (hit F6 if you don't
+se the parameters in any bar). Then press CTRL+T to triangulate it
+(mess with the parameters again, if needed). You could also try other
+methods to deal with this, like the decimate modifier.

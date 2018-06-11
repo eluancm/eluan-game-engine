@@ -1,0 +1,217 @@
+Atualizado: 2014/09/02 (needs snapshots, prediction, etc)
+
+
+===================================================
+ESTRUTURA DE UM PACOTE ENVIADO VIA UDP
+===================================================
+TIPO PACKET_T:
+
+unsigned short		id
+-Identificador do protocolo
+
+unsigned short		len
+-tamanho dos dados, exceto pelo bit mais significativo que é o identificador de pacote confiável (1) ou não confiável (0)
+
+seqnum_t		ack
+-último pacote confiável recebido do host remoto
+
+seqnum_t		reliableid
+-se o bit mais significativo de "len" for (1), esse campo armazena o identificador deste pacote confiável
+
+char			data[MAX_NETCHAN_DATASIZE]
+-conteúdo
+
+===================================================
+ESTRUTURA DO CANAL DE REDE
+===================================================
+
+TIPO PACKETCMD_T, USADO PARA FAZER LINKED LIST DE FILA DE COMANDOS:
+
+packedcmd_t		*next
+-próximo da lista
+
+int			active
+-verdadeiro se esse comando for válido
+
+char			data[MAX_NET_CMDSIZE]
+-conteúdo, não é terminado por zero
+
+int			len
+-tamanho
+
+TIPO PACKETQUEUE_T, O CANAL DE REDE EM SI
+
+// de saída
+packetcmd_t		reliable
+-linked list de comandos confiáveis na fila
+
+packetcmd_t		unreliable
+-linked list de comandos não confiáveis ma fila
+
+char			last_reliable[]
+-último pacote confiável enviado (armazenado para caso seja necessário reenviar), o comandos incluídos aqui já foram removidos da linked list "reliable"
+
+int			last_reliable_len
+-tamanho do último pacote confiável
+
+seqnum_t		outseq
+-identificador do pacote em last_reliable
+
+seqnum_t		outseq_ack
+-último pacote enviado que foi confirmado pelo host remoto, se outseq == outseq_ack, podemos descartar last_reliable e criar um novo
+
+// apenas para servidor, para identificar clientes
+unsigned int		dest_id1
+-identificador 1 do destino, no caso de UDP/IP é o IP
+
+unsigned int		dest_id2
+-identificador 2 do destino, no caso de UDP/IP é a PORTA
+
+// de entrada
+seqnum_t		inseq
+-identificador do último pacote confiável remoto recebido (a ser enviado de volta em cada pacote que enviados, como ACK)
+
+mstime_t		last_received_time
+-tempo absoluto no qual o último pacote foi recebido, usado para timeouts
+
+
+===================================================
+PROCESSO DE CONEXÃO
+===================================================
+
+Legenda:
+-> tipo conteudo: dado "conteudo" do tipo "tipo" do cliente para servidor
+<- tipo conteudo: dado "conteudo" do tipo "tipo" do servidor para cliente
+
+-> short protocol version
+-> short magic number
+<- short 0, se procol/magic inválidos, CANCELE
+   short 1, se servidor cheio, CANCELE
+   short 2, se OK
+<- precacheindex_t número de modelos
+<- char[] cada modelo que o cliente deve carregar
+-> NOP a cada modelo recebido
+<- precacheindex_t número de sons
+<- char[] cada som que o cliente deve carregar
+-> NOP a cada som recebido
+<- baseline (estado inicial, NÃO IMPLEMENTADO - SEMPRE REENVIA, ESTADOS DIFERENCIAIS NÃO IMPLEMENTADOS)
+<- short magic number + 1
+-> short magic number + 2, CLIENTE CONECTADO, TROCA DE MENSAGENS PERMITIDA
+
+===================================================
+MENSAGENS DO SERVER PARA O CLIENT:
+===================================================
+
+byte		SVC_BEGIN
+-inicia um novo estado NÂO DIFERENCIAL
+
+byte		SVC_UPDATEVIEWENT
+entindex_t	VIEWENT
+entindex_t	MY_SLOT
+-válido apenas entre SVC_BEGIN e SVC_END, atualiza o objeto a ser usado como camera e o slot do objeto que representa o jogador
+
+byte		SVC_ENTITY
+entindex_t	index
+vec3		origin
+vec3		velocity
+vec3		angles
+vec1		animation[ANIMATION_MAX_BLENDED_FRAMES]
+precacheindex_t	model
+vec1		light_intensity
+byte		anim_pitch
+-válido apenas entre SVC_BEGIN e SVC_END, atualiza o estado de um objeto.
+
+byte		SVC_END
+-termina o estado NÂO DIFERENCIAL atual. Qualquer objeto não recebido nesse estado não será mostrado
+
+byte		SVC_SERVERQUIT
+-servidor sendo finalizado, DESCONECTE
+
+byte		SVC_ERROR
+-erro de rede, DESCONECTE
+
+byte		SVC_RECONNECT
+-servidor reiniciando (mudança de mapa/nível/cenário), reconecte-se
+
+byte		SVC_VOXELBLOCK
+int		abs_pos[3]
+int		type
+-bloco de voxel
+
+byte		SVC_VOXELCHUNKPART
+int		chunkindex
+int		chunk_offset // for partial sending if a chunk doesn't fit into a message
+if (start == 0)
+{
+	int	chunk_pos[3]
+}
+int		len
+int		data
+-parte de um chunk de voxels
+
+byte		SVC_PARTICLE
+byte		type
+vec3		origin
+-efeito de particulas, "type" é definido pelo GAMECLIENT/GAMESERVER e pode ser, atualmente, PARTICLE_EXPLOSION, PARTICLE_BLOOD ou PARTICLE_GUNSHOT.
+
+byte		SVC_SOUND
+precacheindex_t	sound
+entindex_t	from_ent
+vec3		origin
+vec3		velocity
+byte		channel
+vec1		pitch
+vec1		gain
+vec1		attenuation
+byte		loop
+-toca um som, "channel" é definido pelo GAMECLIENT/GAMESERVER e pode ser, atualmente, CHAN_VOICE, CHAN_WEAPON, CHAN_BODY, CHAN_EXTRA. Tocar um novo som em um canal que ainda está tocando um som faz com que ele seja substituído.
+
+byte		SVC_STOPSOUND
+entindex_t	from_ent
+byte		channel
+-cancela um som que está sendo tocado
+
+===================================================
+MENSAGENS DO GAMESERVER PARA O GAMECLIENT:
+===================================================
+
+byte		SVC_UPDATESTATS
+vec1		health
+vec1		armor
+int		weapons
+int		current_weapon_ammo
+int		current_weapon_ammo_capacity
+int		current_ammo
+int		current_ammo_capacity
+int		current_weapon
+int		items
+char		scorenames[MAX_CLIENTS][MAX_GAME_STRING]
+int		scorefrags[MAX_CLIENTS]
+-estado do jogo que interessa ao cliente, basicamente coisas da interface do usuário (status na tela, pontuação, etc)
+
+byte		SVC_CENTERPRINT
+char		message[MAX_GAME_STRING]
+-mostra mensagem no centro da tela, sobrescreve a anterior se ela ainda não tiver sido removida por tempo
+
+byte		SVC_PRINT
+char		message[MAX_GAME_STRING]
+-mostra mensagem no buffer do canto da tela que pode mostrar várias ao mesmo tempo
+
+===================================================
+MENSAGENS DO CLIENT PARA O SERVER:
+===================================================
+
+byte		CLC_DISCONNECT
+-cliente saindo do jogo
+
+===================================================
+MENSAGENS DO GAMECLIENT PARA O GAMESERVER:
+===================================================
+
+byte		CLC_MOVE
+vec3		in_move
+vec3		in_aim
+byte		in_buttons
+byte		in_triggerbuttons
+byte		impulse
+-comandos do cliente, para movimentação, pular, etc...

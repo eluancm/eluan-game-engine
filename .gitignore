@@ -7,3 +7,24 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+
+Tools/
+
+Libraries/*
+!Libraries/ftgl-code-1266-trunk
+!Libraries/ftgl-code-1266-trunk_linux
+
+Engine/CMakeLists.txt
+Engine/build/
+Engine/*/*.exe
+Engine/*/*.ilk
+Engine/*/*.pdb
+Engine/*.ncb
+Engine/*.suo
+Engine/Engine/*/
+!Engine/Engine/lua/
+Engine/Engine/*.user
+
+Engine/Debug/*/
+Engine/Release/*/
+# what is the directory for profile builds under windows again?

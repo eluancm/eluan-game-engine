@@ -1,0 +1,125 @@
+project(engine_dedicated)
+
+# TODO: check effective minimum version
+cmake_minimum_required(VERSION 2.8)
+
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -march=native -O2 -pipe -fomit-frame-pointer")
+set(CMAKE_CXX_FLAGS_RELEASE " ${CMAKE_C_FLAGS_RELEASE} ${CMAKE_CXX_FLAGS_RELEASE}")
+
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g")
+set(CMAKE_CXX_FLAGS_DEBUG " ${CMAKE_C_FLAGS_DEBUG} ${CMAKE_CXX_FLAGS_DEBUG}")
+
+add_executable(${PROJECT_NAME}
+	Engine/game_shared_lua.c
+	Engine/game_sv_lua_main.c
+	Engine/game_sv_materialresources.c
+	Engine/host.c
+	Engine/host_commands.c
+	Engine/host_cpputils.cpp
+	Engine/host_filesystem.c
+	Engine/host_math.c
+	Engine/host_models.c
+	Engine/host_netchan.c
+	Engine/host_utils.c
+	Engine/host_voxels.c
+	Engine/sv_main.c
+	Engine/sv_resources.c
+	Engine/sv_snapshot.c
+	Engine/sv_voxels.c
+	Engine/sys_model_iqm.cpp
+	Engine/sys_models.c
+	Engine/sys_physics.cpp
+	Engine/sys_win.c
+	Engine/sys_win_net.c
+	Engine/sys_win_video.cpp
+
+	Engine/client.h
+	Engine/engine.h
+	Engine/game_cl_lua.h
+	Engine/game_cl.h
+	Engine/game_shared.h
+	Engine/game_shared_lua.h
+	Engine/game_sv_lua.h
+	Engine/game_sv.h
+	Engine/host.h
+	Engine/server.h
+	Engine/system.h
+
+	# lua 5.3.3
+	Engine/lua/src/lapi.c
+	Engine/lua/src/lauxlib.c
+	Engine/lua/src/lbaselib.c
+	Engine/lua/src/lbitlib.c
+	Engine/lua/src/lcode.c
+	Engine/lua/src/lcorolib.c
+	Engine/lua/src/lctype.c
+	Engine/lua/src/ldblib.c
+	Engine/lua/src/ldebug.c
+	Engine/lua/src/ldo.c
+	Engine/lua/src/ldump.c
+	Engine/lua/src/lfunc.c
+	Engine/lua/src/lgc.c
+	Engine/lua/src/linit.c
+	Engine/lua/src/liolib.c
+	Engine/lua/src/llex.c
+	Engine/lua/src/lmathlib.c
+	Engine/lua/src/lmem.c
+	Engine/lua/src/loadlib.c
+	Engine/lua/src/lobject.c
+	Engine/lua/src/lopcodes.c
+	Engine/lua/src/loslib.c
+	Engine/lua/src/lparser.c
+	Engine/lua/src/lstate.c
+	Engine/lua/src/lstring.c
+	Engine/lua/src/lstrlib.c
+	Engine/lua/src/ltable.c
+	Engine/lua/src/ltablib.c
+	Engine/lua/src/ltm.c
+	Engine/lua/src/lundump.c
+	Engine/lua/src/lutf8lib.c
+	Engine/lua/src/lvm.c
+	Engine/lua/src/lzio.c
+
+	Engine/lua/src/lapi.h
+	Engine/lua/src/lauxlib.h
+	Engine/lua/src/lcode.h
+	Engine/lua/src/lctype.h
+	Engine/lua/src/ldebug.h
+	Engine/lua/src/ldo.h
+	Engine/lua/src/lfunc.h
+	Engine/lua/src/lgc.h
+	Engine/lua/src/llex.h
+	Engine/lua/src/llimits.h
+	Engine/lua/src/lmem.h
+	Engine/lua/src/lobject.h
+	Engine/lua/src/lopcodes.h
+	Engine/lua/src/lparser.h
+	Engine/lua/src/lprefix.h
+	Engine/lua/src/lstate.h
+	Engine/lua/src/lstring.h
+	Engine/lua/src/ltable.h
+	Engine/lua/src/ltm.h
+	Engine/lua/src/lua.h
+	Engine/lua/src/lua.hpp
+	Engine/lua/src/luaconf.h
+	Engine/lua/src/lualib.h
+	Engine/lua/src/lundump.h
+	Engine/lua/src/lvm.h
+	Engine/lua/src/lzio.h
+	)
+
+INCLUDE(FindPkgConfig)
+
+# TODO: check effective minimum versions
+PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2>=2.0.0)
+PKG_SEARCH_MODULE(SDL2NET REQUIRED SDL2_net>=2.0.0)
+PKG_SEARCH_MODULE(BULLET REQUIRED bullet>=2.85)
+
+INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS} ${SDL2NET_INCLUDE_DIRS}
+	${BULLET_INCLUDE_DIRS}
+	Engine Engine/lua
+	)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2NET_LIBRARIES}
+	${BULLET_LIBRARIES}
+	-lBulletFileLoader -lBulletWorldImporter
+	)
