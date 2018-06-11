@@ -28,3 +28,15 @@ Engine/Engine/*.user
 Engine/Debug/*/
 Engine/Release/*/
 # what is the directory for profile builds under windows again?
+
+# this is ugly because we can't unignore if the parent was ignored
+!Engine/Debug/data/
+Engine/Debug/data/*
+!Engine/Debug/data/progs/
+!Engine/Debug/data/autoexec.cfg
+!Engine/Debug/data/game.cfg
+!Engine/Debug/data/keybindings_default.cfg
+!Engine/Debug/data/maps/
+!Engine/Debug/data/shaders/
+!Engine/Debug/profiling/
+Engine/Debug/profiling/result/*

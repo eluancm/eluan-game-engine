@@ -1,0 +1,986 @@
+{
+	"classname" "worldspawn"
+}
+{
+	"classname" "info_player_start"
+	"origin"    "15 18 15"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-300 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-600 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-900 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1200 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1500 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1800 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2100 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2400 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2700 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3000 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3300 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3600 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3900 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4200 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4500 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4800 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5100 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5400 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5700 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-6000 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "300 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "600 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "900 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1200 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1500 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1800 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2100 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2400 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2700 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3000 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3300 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3600 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3900 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4200 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4500 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4800 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5100 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5400 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5700 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "6000 0 0"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-300 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-600 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-900 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1200 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1500 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1800 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2100 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2400 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2700 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3000 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3300 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3600 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3900 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4200 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4500 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4800 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5100 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5400 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5700 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-6000 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "300 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "600 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "900 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1200 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1500 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1800 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2100 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2400 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2700 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3000 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3300 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3600 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3900 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4200 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4500 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4800 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5100 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5400 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5700 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "6000 0 300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-300 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-600 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-900 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1200 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1500 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-1800 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2100 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2400 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-2700 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3000 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3300 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3600 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-3900 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4200 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4500 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-4800 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5100 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5400 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-5700 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "-6000 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "300 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "600 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "900 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1200 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1500 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "1800 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2100 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2400 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "2700 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3000 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3300 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3600 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "3900 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4200 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4500 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "4800 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5100 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5400 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "5700 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "misc_static"
+	"model"		"level4"
+	"origin"    "6000 0 -300"
+	"angles"	"0 0 0"
+}
+{
+	"classname" "item_slot"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}

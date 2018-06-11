@@ -1,0 +1,266 @@
+{
+	"classname" "worldspawn"
+}
+{
+	"classname" "info_player_start"
+	"origin"    "15 18 15"
+}
+{
+	"classname" "item_slot"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 18 15"
+	"counter"    "2"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 64 64"
+}

@@ -1,0 +1,274 @@
+{
+	"classname" "worldspawn"
+}
+{
+	"classname" "info_player_start"
+	"origin"    "15 300 15"
+}
+{
+	"classname" "vehicle_fourwheels"
+	"origin"    "15 300 20"
+}
+{
+	"classname" "vehicle_vertiglider"
+	"origin"    "20 300 20"
+}
+{
+	"classname" "item_slot"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "item_slot_ammo"
+	"origin"    "15 360 15"
+	"counter"    "2"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 15"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "32 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 32"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
+{
+	"classname" "enemy_zombie"
+	"origin"    "64 640 64"
+}
